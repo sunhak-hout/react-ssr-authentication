@@ -23,5 +23,8 @@ app.use(cors());
 // Initial req.context
 app.use(context);
 
+// Middleware: Enable App Routing
+app.use(router);
+
 // Middleware: App Error Handler
 app.use(errorHandler);
