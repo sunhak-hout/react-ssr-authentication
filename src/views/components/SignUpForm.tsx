@@ -1,5 +1,4 @@
 import {
-  Avatar,
   Box,
   Button,
   createStyles,
@@ -11,13 +10,14 @@ import {
   TextField,
   Typography,
   useMediaQuery,
-  useTheme,
+  useTheme
 } from '@material-ui/core';
-import React, { ChangeEvent, FormEvent, useState } from 'react';
 import PasswordVisibilityIcon from '@material-ui/icons/VisibilityOffOutlined';
+import Alert from '@material-ui/lab/Alert';
+import React, { ChangeEvent, FormEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { PostRequestResult } from '../contexts/useRequest';
-import Alert from '@material-ui/lab/Alert';
+import reactSVG from '../../../public/icons8-react.svg';
 
 export interface SignUpData {
   firstName: string;
@@ -66,11 +66,11 @@ const SignUpForm: React.FC<Props> = ({ onSubmit, error }) => {
     <Box component={xsDown ? undefined : Paper} p={xsDown ? 3 : 5} className={c.formContainer}>
       <form onSubmit={onSubmitLogin}>
         <Box textAlign="center" mb={3}>
-          <Avatar variant="circle" className={c.avatar} src="https://bit.ly/2UxBGcC" />
+          <img src={`/${reactSVG}`} style={{ width: 128 }} />
           <Typography variant="h5" gutterBottom>
-            DGTB Admin
+            React Dashboard
           </Typography>
-          <Typography gutterBottom>Login to your account to continue</Typography>
+          <Typography gutterBottom>Please fill in your information below</Typography>
         </Box>
         <Grid container spacing={2}>
           <Grid item xs={6}>
@@ -168,12 +168,6 @@ const useStyles = makeStyles((theme) =>
     formContainer: {
       width: 520,
       [theme.breakpoints.down('xs')]: { width: '100%' },
-    },
-    avatar: {
-      width: 84,
-      height: 84,
-      margin: 'auto',
-      marginBottom: 20,
     },
     alertError: {
       marginTop: 24,

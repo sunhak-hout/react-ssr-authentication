@@ -8,11 +8,18 @@ module.exports = function (env, argv) {
     output: {
       filename: 'bundle.js',
       path: path.resolve(process.cwd(), 'dist'),
-      publicPath: '/public/',
     },
     devtool: 'cheap-module-eval-source-map',
     resolve: { extensions: ['.ts', '.tsx', '.js', '.json'] },
-    module: { rules: [{ test: /\.tsx?$/, use: [{ loader: 'ts-loader' }] }] },
+    module: {
+      rules: [
+        { test: /\.tsx?$/, use: [{ loader: 'ts-loader' }] },
+        {
+          test: /\.(png|svg|jpe?g|gif)$/i,
+          loader: 'file-loader',
+        },
+      ],
+    },
   };
 
   const prodModeConfig = {
@@ -21,11 +28,23 @@ module.exports = function (env, argv) {
     output: {
       filename: 'bundle.js',
       path: path.resolve(process.cwd(), 'dist'),
-      publicPath: '/public/',
     },
     performance: { hints: false },
     resolve: { extensions: ['.ts', '.tsx', '.js', '.json'] },
-    module: { rules: [{ test: /\.tsx?$/, use: [{ loader: 'ts-loader' }] }] },
+    module: {
+      rules: [
+        {
+          test: /\.tsx?$/,
+          use: [
+            { loader: 'ts-loader' },
+            {
+              test: /\.(png|svg|jpe?g|gif)$/i,
+              loader: 'file-loader',
+            },
+          ],
+        },
+      ],
+    },
   };
 
   return process.env.NODE_ENV === 'production' ? prodModeConfig : devModeConfig;

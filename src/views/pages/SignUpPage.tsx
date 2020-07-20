@@ -1,11 +1,15 @@
 import { createStyles, makeStyles } from '@material-ui/core';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
 import { useHistory } from 'react-router-dom';
 import SignUpForm, { SignUpData } from '../components/SignUpForm';
 import { PostRequestResult, useRequest } from '../contexts/useRequest';
 
 const SignUpPage: React.FC = () => {
+  useEffect(() => {
+    document.title = 'Sign Up Page';
+  }, []);
+
   const [signUpError, setSignUpError] = useState<PostRequestResult['error']>();
   const [, setCookie] = useCookies(['token']);
   const { postRequest } = useRequest();

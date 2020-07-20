@@ -12,7 +12,7 @@ export const app = express();
 app.use(morgan('tiny'));
 
 // Middlware: Enable static folders
-app.use(express.static('dist'));
+app.use('/', express.static('dist'));
 
 // Middlware: Parsing req.body into JSON
 app.use(bodyParser.json());

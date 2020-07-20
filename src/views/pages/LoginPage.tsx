@@ -1,11 +1,15 @@
 import { createStyles, makeStyles } from '@material-ui/core';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
 import { useHistory } from 'react-router-dom';
 import LoginForm, { LoginData } from '../components/LoginForm';
 import { PostRequestResult, useRequest } from '../contexts/useRequest';
 
 const LoginPage: React.FC = () => {
+  useEffect(() => {
+    document.title = 'Login Page';
+  }, []);
+
   const { postRequest } = useRequest();
   const history = useHistory();
 

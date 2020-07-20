@@ -1,23 +1,31 @@
-import { Avatar, Box, Button, createStyles, makeStyles, Typography } from '@material-ui/core';
-import React, { Fragment } from 'react';
+import { Box, createStyles, makeStyles, Typography } from '@material-ui/core';
+import React, { Fragment, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import welcomeSVG from '../../../public/undraw_welcome_cats_thqn.svg';
 import { useAuth } from '../contexts/useAuth';
 
 const WelcomePage: React.FC = () => {
   const { user } = useAuth();
+
+  useEffect(() => {
+    document.title = `Welcome, ${user.firstName} ${user.lastName}`;
+  });
+
   const c = useStyles();
   return (
     <Fragment>
       <div className={c.container}>
         <Box textAlign="center" mb={3}>
-          <Avatar variant="circle" className={c.avatar} src="https://bit.ly/2UxBGcC" />
+          <img src={`/${welcomeSVG}`} style={{ maxWidth: 400, width: '100%', marginBottom: 12 }} />
           <Typography variant="h5" gutterBottom>
             Welcome, {user?.firstName} {user?.lastName}!
           </Typography>
-          <Typography gutterBottom>
-            You've successfully logged in to the system.
-            <Link to="/logout"> Log out? </Link>
-          </Typography>
+          <Typography gutterBottom>You've successfully logged in to the system.</Typography>
+          <Link to="/logout" style={{ textDecoration: 'none' }}>
+            <Typography color="primary" component="span">
+              Log out?
+            </Typography>
+          </Link>
         </Box>
       </div>
     </Fragment>

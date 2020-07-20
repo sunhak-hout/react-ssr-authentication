@@ -1,5 +1,4 @@
 import {
-  Avatar,
   Box,
   Button,
   createStyles,
@@ -11,12 +10,13 @@ import {
   TextField,
   Typography,
   useMediaQuery,
-  useTheme,
+  useTheme
 } from '@material-ui/core';
+import PasswordVisibilityIcon from '@material-ui/icons/VisibilityOffOutlined';
 import Alert from '@material-ui/lab/Alert';
 import React, { ChangeEvent, FormEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
-import PasswordVisibilityIcon from '@material-ui/icons/VisibilityOffOutlined';
+import reactSVG from '../../../public/icons8-react.svg';
 import { PostRequestResult } from '../contexts/useRequest';
 
 export interface LoginData {
@@ -60,9 +60,9 @@ const LoginForm: React.FC<Props> = ({ onSubmit, error }) => {
     <Box component={xsDown ? undefined : Paper} p={xsDown ? 3 : 5} className={c.formContainer}>
       <form onSubmit={onSubmitLogin}>
         <Box textAlign="center" mb={3}>
-          <Avatar variant="circle" className={c.avatar} src="https://bit.ly/2UxBGcC" />
+          <img src={`/${reactSVG}`} style={{ width: 128 }} /> 
           <Typography variant="h5" gutterBottom>
-            DGTB Admin
+            React Dashboard
           </Typography>
           <Typography gutterBottom>Login to your account to continue</Typography>
         </Box>
@@ -136,12 +136,6 @@ const useStyles = makeStyles((theme) =>
     formContainer: {
       width: 520,
       maxWidth: 520,
-    },
-    avatar: {
-      width: 84,
-      height: 84,
-      margin: 'auto',
-      marginBottom: 20,
     },
     alertError: {
       marginTop: 24,

@@ -52,6 +52,7 @@
     "@types/react-router-dom": "^5.1.5",
     "@types/url-join": "^4.0.0",
     "concurrently": "^5.2.0",
+    "file-loader": "^6.0.0",
     "nodemon": "^1.19.4",
     "ts-loader": "^8.0.1",
     "typescript": "^3.9.6",
