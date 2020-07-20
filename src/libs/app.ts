@@ -20,5 +20,8 @@ app.use(bodyParser.json());
 // Middleware: Enable CORS policy - Access-Control-Allow-Origin
 app.use(cors());
 
+// Initial req.context
+app.use(context);
+
 // Middleware: App Error Handler
 app.use(errorHandler);
