@@ -1,11 +1,11 @@
-# React JS Server-Side Rendering
+# React JS Server-Side-Rendering Authentication
 
-All you have been looking for with ReactJS + ExpressJS + MongoDB:
+Authentication flow built with ReactJS + ExpressJS + MongoDB:
 
 * Implement with TypeScript
 * MVC Pattern, Dependency Injection, OOP
 * Custom Error Handlings
-* Material-UI (version 4)
+* Material-UI 4
 * Webpack 4
 
 ## Getting Started
@@ -18,7 +18,7 @@ Recommended NodeJS and NPM version:
 
 ```
 node --version # v10.15.1
-npm --verions  # 6.14.5
+npm --version  # 6.14.5
 ```
 
 ### Installing and Running
@@ -43,9 +43,8 @@ Install dependencies and start
 npm install
 npm run dev
 
-or
-
-npm run start # for production
+# for production mode
+npm run start
 ```
 
 ## Contributing
