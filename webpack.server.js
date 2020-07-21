@@ -18,10 +18,7 @@ module.exports = function (env, argv) {
     module: {
       rules: [
         { test: /\.tsx?$/, use: [{ loader: 'ts-loader' }] },
-        {
-          test: /\.(png|svg|jpe?g|gif)$/i,
-          loader: 'file-loader',
-        },
+        { test: /\.(png|svg|jpe?g|gif)$/i, loader: 'file-loader' },
       ],
     },
     plugins: [
@@ -47,10 +44,7 @@ module.exports = function (env, argv) {
     module: {
       rules: [
         { test: /\.tsx?$/, use: [{ loader: 'ts-loader' }] },
-        {
-          test: /\.(png|svg|jpe?g|gif)$/i,
-          loader: 'file-loader',
-        },
+        { test: /\.(png|svg|jpe?g|gif)$/i, loader: 'file-loader' },
       ],
     },
   };
