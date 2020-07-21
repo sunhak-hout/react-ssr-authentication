@@ -68,6 +68,7 @@ const LoginForm: React.FC<Props> = ({ onSubmit, error, loading }) => {
           </Typography>
           <Typography gutterBottom>Login to your account to continue</Typography>
         </Box>
+
         <Grid container spacing={2}>
           <Grid item xs={12}>
             <TextField

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "NODE_ENV=development npm run build",
-    "start": "NODE_ENV=production npm run build && node ./dist/index.js",
+    "start": "NODE_ENV=production npm run build && NODE_ENV=production node ./dist/index.js",
     "build": "concurrently \"npm run build:*\"",
     "build:server": "webpack --config webpack.server.js",
     "build:web": "webpack --config webpack.web.js"

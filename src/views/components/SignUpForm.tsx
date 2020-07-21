@@ -74,6 +74,7 @@ const SignUpForm: React.FC<Props> = ({ onSubmit, error, loading }) => {
           </Typography>
           <Typography gutterBottom>Please fill in your information below</Typography>
         </Box>
+
         <Grid container spacing={2}>
           <Grid item xs={6}>
             <TextField

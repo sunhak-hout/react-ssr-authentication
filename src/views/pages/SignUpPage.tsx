@@ -1,4 +1,3 @@
-import { createStyles, makeStyles } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
 import { useHistory } from 'react-router-dom';

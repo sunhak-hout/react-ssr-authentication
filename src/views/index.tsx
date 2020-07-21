@@ -4,11 +4,11 @@ import { BrowserRouter } from 'react-router-dom';
 import AppRouter from './AppRouter';
 import ContextProvider from './contexts';
 
-const App: React.FC = ({ children }) => {
+const App: React.FC = () => {
   return (
     <ContextProvider>
       <BrowserRouter>
-        <AppRouter>{children}</AppRouter>
+        <AppRouter />
       </BrowserRouter>
     </ContextProvider>
   );

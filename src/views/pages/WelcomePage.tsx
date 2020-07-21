@@ -1,5 +1,5 @@
 import { Box, Button, createStyles, makeStyles, Typography } from '@material-ui/core';
-import React, { Fragment, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import welcomeSVG from '../../../public/undraw_welcome_cats_thqn.svg';
 import { useAuth } from '../contexts/useAuth';

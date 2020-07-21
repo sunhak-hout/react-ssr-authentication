@@ -1,5 +1,6 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
+import PageLoader from '../components/PageLoader';
 import { useAuth } from '../contexts/useAuth';
 
 const LogoutPage: React.FC = () => {
@@ -11,7 +12,7 @@ const LogoutPage: React.FC = () => {
     history.push('/login');
   }, []);
 
-  return <Fragment />;
+  return <PageLoader />;
 };
 
 export default LogoutPage;
