@@ -4,6 +4,7 @@ import { useCookies } from 'react-cookie';
 import { useHistory } from 'react-router-dom';
 import SignUpForm, { SignUpData } from '../components/SignUpForm';
 import { PostRequestResult, useRequest } from '../contexts/useRequest';
+import LayoutCenter from '../layouts/LayoutCenter';
 
 const SignUpPage: React.FC = () => {
   useEffect(() => {
@@ -29,24 +30,11 @@ const SignUpPage: React.FC = () => {
     }
   };
 
-  const c = useStyles();
   return (
-    <div className={c.container}>
+    <LayoutCenter>
       <SignUpForm onSubmit={onSubmitSignUp} error={signUpError} loading={signUpLoading} />
-    </div>
+    </LayoutCenter>
   );
 };
-
-const useStyles = makeStyles((theme) =>
-  createStyles({
-    container: {
-      width: '100vw',
-      height: '90vh',
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-    },
-  }),
-);
 
 export default SignUpPage;

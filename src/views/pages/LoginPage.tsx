@@ -1,9 +1,9 @@
-import { createStyles, makeStyles } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
 import { useHistory } from 'react-router-dom';
 import LoginForm, { LoginData } from '../components/LoginForm';
 import { PostRequestResult, useRequest } from '../contexts/useRequest';
+import LayoutCenter from '../layouts/LayoutCenter';
 
 const LoginPage: React.FC = () => {
   useEffect(() => {
@@ -30,24 +30,11 @@ const LoginPage: React.FC = () => {
     }
   };
 
-  const c = useStyles({});
   return (
-    <div className={c.container}>
+    <LayoutCenter>
       <LoginForm onSubmit={onSubmitLogin} error={loginError} loading={loginLoading} />
-    </div>
+    </LayoutCenter>
   );
 };
-
-const useStyles = makeStyles((theme) =>
-  createStyles({
-    container: {
-      width: '100vw',
-      minHeight: '90vh',
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-    },
-  }),
-);
 
 export default LoginPage;

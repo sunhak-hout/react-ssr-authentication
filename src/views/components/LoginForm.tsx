@@ -138,7 +138,7 @@ const useStyles = makeStyles((theme) =>
   createStyles({
     formContainer: {
       width: 520,
-      maxWidth: 520,
+      [theme.breakpoints.down('xs')]: { width: '100%' },
     },
     alertError: {
       marginTop: 24,
