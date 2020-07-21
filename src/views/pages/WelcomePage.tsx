@@ -16,7 +16,7 @@ const WelcomePage: React.FC = () => {
     <Fragment>
       <div className={c.container}>
         <Box textAlign="center" mb={3}>
-          <img src={`/${welcomeSVG}`} style={{ maxWidth: 400, width: '100%', marginBottom: 12 }} />
+          <img src={`/${welcomeSVG}`} className={c.welcomeSVG} />
           <Typography variant="h5" gutterBottom>
             Welcome, {user?.firstName} {user?.lastName}!
           </Typography>
@@ -37,14 +37,10 @@ const useStyles = makeStyles((theme) =>
     container: {
       marginTop: 200,
     },
-    buttonLogOut: {
-      marginTop: 24,
-    },
-    avatar: {
-      width: 84,
-      height: 84,
-      margin: 'auto',
-      marginBottom: 20,
+    welcomeSVG: {
+      maxWidth: 400,
+      width: '70%',
+      marginBottom: 12,
     },
   }),
 );

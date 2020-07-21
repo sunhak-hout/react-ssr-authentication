@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import { BrowserRouter, Redirect, Route, RouteProps, Switch } from 'react-router-dom';
+import { Redirect, Route, RouteProps, Switch } from 'react-router-dom';
+import PageLoader from './components/PageLoader';
 import { useAuth } from './contexts/useAuth';
 import Error404 from './pages/Error404';
 import LoginPage from './pages/LoginPage';
@@ -42,7 +43,7 @@ const AuthRoute: React.FC<RouteProps> = (props) => {
     setIsReady(true);
   };
 
-  if (!isReady) return <Fragment />;
+  if (!isReady) return <PageLoader />;
   return isAuth ? <Route {...props} /> : <Redirect to={{ pathname: '/login' }} />;
 };
 

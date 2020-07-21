@@ -10,7 +10,7 @@ import {
   TextField,
   Typography,
   useMediaQuery,
-  useTheme
+  useTheme,
 } from '@material-ui/core';
 import PasswordVisibilityIcon from '@material-ui/icons/VisibilityOffOutlined';
 import Alert from '@material-ui/lab/Alert';
@@ -18,6 +18,7 @@ import React, { ChangeEvent, FormEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
 import reactSVG from '../../../public/icons8-react.svg';
 import { PostRequestResult } from '../contexts/useRequest';
+import AppButton from './AppButton';
 
 export interface LoginData {
   email: string;
@@ -27,9 +28,10 @@ export interface LoginData {
 interface Props {
   onSubmit: (data: LoginData) => void;
   error: PostRequestResult['error'];
+  loading: boolean;
 }
 
-const LoginForm: React.FC<Props> = ({ onSubmit, error }) => {
+const LoginForm: React.FC<Props> = ({ onSubmit, error, loading }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordVisible, setPasswordVisible] = useState(false);
@@ -60,7 +62,7 @@ const LoginForm: React.FC<Props> = ({ onSubmit, error }) => {
     <Box component={xsDown ? undefined : Paper} p={xsDown ? 3 : 5} className={c.formContainer}>
       <form onSubmit={onSubmitLogin}>
         <Box textAlign="center" mb={3}>
-          <img src={`/${reactSVG}`} style={{ width: 128 }} /> 
+          <img src={`/${reactSVG}`} style={{ width: 128 }} />
           <Typography variant="h5" gutterBottom>
             React Dashboard
           </Typography>
@@ -111,16 +113,17 @@ const LoginForm: React.FC<Props> = ({ onSubmit, error }) => {
           </Alert>
         )}
 
-        <Button
+        <AppButton
           variant="contained"
           color="primary"
           size="large"
           type="submit"
           fullWidth
+          loading={loading}
           className={c.buttonLogin}
         >
           Login Now
-        </Button>
+        </AppButton>
         <Link to={'/signup'} style={{ textDecoration: 'none' }}>
           <Button variant="text" color="primary" size="large" fullWidth>
             Create New Account

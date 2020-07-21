@@ -10,14 +10,15 @@ import {
   TextField,
   Typography,
   useMediaQuery,
-  useTheme
+  useTheme,
 } from '@material-ui/core';
 import PasswordVisibilityIcon from '@material-ui/icons/VisibilityOffOutlined';
 import Alert from '@material-ui/lab/Alert';
 import React, { ChangeEvent, FormEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { PostRequestResult } from '../contexts/useRequest';
 import reactSVG from '../../../public/icons8-react.svg';
+import { PostRequestResult } from '../contexts/useRequest';
+import AppButton from './AppButton';
 
 export interface SignUpData {
   firstName: string;
@@ -29,9 +30,10 @@ export interface SignUpData {
 interface Props {
   onSubmit: (data: SignUpData) => void;
   error: PostRequestResult['error'];
+  loading: boolean;
 }
 
-const SignUpForm: React.FC<Props> = ({ onSubmit, error }) => {
+const SignUpForm: React.FC<Props> = ({ onSubmit, error, loading }) => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -143,16 +145,17 @@ const SignUpForm: React.FC<Props> = ({ onSubmit, error }) => {
           </Alert>
         )}
 
-        <Button
+        <AppButton
           variant="contained"
           color="primary"
           size="large"
           type="submit"
           fullWidth
+          loading={loading}
           className={c.buttonSignUp}
         >
           Sign Up
-        </Button>
+        </AppButton>
         <Link to={'/login'} style={{ textDecoration: 'none' }}>
           <Button variant="text" color="primary" size="large" fullWidth>
             Login to my account

@@ -10,24 +10,29 @@ const SignUpPage: React.FC = () => {
     document.title = 'Sign Up Page';
   }, []);
 
+  const [signUpLoading, setSignUpLoading] = useState(false);
   const [signUpError, setSignUpError] = useState<PostRequestResult['error']>();
   const [, setCookie] = useCookies(['token']);
   const { postRequest } = useRequest();
   const history = useHistory();
 
   const onSubmitSignUp = async (data: SignUpData) => {
+    setSignUpLoading(true);
+
     const result = await postRequest({ url: 'signup', data });
     setSignUpError(result.error);
+    setSignUpLoading(false);
+
     if (result.data?.token) {
       setCookie('token', result.data.token);
-      history.push('/')
+      history.push('/');
     }
   };
 
   const c = useStyles();
   return (
     <div className={c.container}>
-      <SignUpForm onSubmit={onSubmitSignUp} error={signUpError} />
+      <SignUpForm onSubmit={onSubmitSignUp} error={signUpError} loading={signUpLoading} />
     </div>
   );
 };

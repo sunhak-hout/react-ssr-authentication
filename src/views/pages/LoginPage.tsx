@@ -15,10 +15,14 @@ const LoginPage: React.FC = () => {
 
   const [, setCookie] = useCookies(['token']);
   const [loginError, setLoginError] = useState<PostRequestResult['error']>();
+  const [loginLoading, setLoginLoading] = useState(false);
 
   const onSubmitLogin = async (data: LoginData) => {
+    setLoginLoading(true);
+
     const result = await postRequest({ url: 'login', data });
     setLoginError(result.error);
+    setLoginLoading(false);
 
     if (result.data?.token) {
       setCookie('token', result.data.token);
@@ -29,7 +33,7 @@ const LoginPage: React.FC = () => {
   const c = useStyles({});
   return (
     <div className={c.container}>
-      <LoginForm onSubmit={onSubmitLogin} error={loginError} />
+      <LoginForm onSubmit={onSubmitLogin} error={loginError} loading={loginLoading} />
     </div>
   );
 };
