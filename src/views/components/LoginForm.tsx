@@ -62,7 +62,7 @@ const LoginForm: React.FC<Props> = ({ onSubmit, error, loading }) => {
     <Box component={xsDown ? undefined : Paper} p={xsDown ? 3 : 5} className={c.formContainer}>
       <form onSubmit={onSubmitLogin}>
         <Box textAlign="center" mb={3}>
-          <img src={`/${reactSVG}`} style={{ width: 128 }} />
+          <img src={`/${reactSVG}`} style={{ width: 128, height: 128 }} />
           <Typography variant="h5" gutterBottom>
             React Dashboard
           </Typography>
