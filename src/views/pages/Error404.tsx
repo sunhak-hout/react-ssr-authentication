@@ -1,10 +1,14 @@
 import { Box, Button, createStyles, makeStyles, Typography } from '@material-ui/core';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import error404SVG from '../../../public/undraw_page_not_found_su7k.svg';
 import LayoutCenter from '../layouts/LayoutCenter';
 
 const Error404: React.FC = () => {
+  useEffect(() => {
+    document.title = '404 - Page not found';
+  });
+
   const c = useStyles();
   return (
     <LayoutCenter>
